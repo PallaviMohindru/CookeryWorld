@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+<section class="jumbotron text-center">
+  <div class="container">
+    <img src="{% static 'getoncooking.jfif' %}" alt="noimage" height="200" width="300">
+  </div>
+  <h3>Site by: <a href="{% url 'author' %}">Pallavi Mohindru</a></h3>
+  <h4>Pursuing Cooking as hobby and presenting various recipes </h4>
+  <h5>Please <a href="{%url 'login' %}"> Login</a> to view the recipes</h5>
+</section>
+
+{% endblock %}

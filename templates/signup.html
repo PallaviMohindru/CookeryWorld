@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<br>
+<style>
+form { width: 400px; }
+label { width: 150px; }
+input[type=text] {  width: 200px; }
+input[type=password] {  width: 200px; }
+.clear { clear: both; height: 0; line-height: 0; }
+.floatright { float: right; }
+</style>
+
+<form class="container" action="{% url 'signup' %}" method="POST">
+  {% csrf_token %}
+<div class="row">
+  <div class="col-12" align="center">
+    <h3 style="color:blue">SIGN UP</h3>
+    <br>
+    <label>UserName: </label> <input type="text" name="username" value="">
+    <br>
+    <br>
+    <label>Password: </label> <input type="password" name="password" value="">
+    <br>
+    <br>
+    <label>ConfirmPassword: </label> <input type="password" name="cnfpassword" value="">
+    <br>
+    <br>
+    <input type="submit" name="signup" value="SIGNUP" style="color:brown">
+    <br>
+    <br>
+    {% if error %}
+    {{error}}
+    {% endif%}
+
+    {% if signedup %}
+        <h4>User is created sucessfully. Please <a href="{% url 'login' %}">Login</a> with this user to access the site</h4>
+    {% endif %}
+  </div>
+</div>
+</form>
+  <br>
+  <br>
+
+{% endblock %}

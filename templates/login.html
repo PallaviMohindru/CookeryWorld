@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<style>
+form { width: 400px; }
+label { width: 150px; }
+input[type=text] {  width: 200px; }
+input[type=password] {  width: 200px; }
+.clear { clear: both; height: 0; line-height: 0; }
+.floatright { float: right; }
+</style>
+<form class="container" action="{% url 'login' %}" method="POST">
+{% csrf_token %}
+<div class="row">
+  <div class="col-12" align="center">
+    <h3 style="color:blue">LOGIN DETAILS</h3>
+    <br>
+    <label>UserName: </label> <input type="text" name="username" value="">
+    <br>
+    <br>
+    <label>Password: </label> <input type="password" name="password" value="">
+    <br>
+    <br>
+    <input type="submit" name="login" value="LOGIN" style="color:brown">
+    <br>
+    <br>
+    <h5>If not registered yet <a href="{% url 'signup' %}"> SIGNUP</a></h5>
+    <br>
+    <br>
+    {% if error %}
+    {{error}}
+    {% endif %}
+  </div>
+  </div>
+  <br>
+  <br>
+  </form>
+
+{% endblock %}
