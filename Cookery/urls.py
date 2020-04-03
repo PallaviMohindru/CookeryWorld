@@ -25,6 +25,7 @@ urlpatterns = [
     path('author/', views.author, name = 'author'),
     path('login/', views.login, name = 'login'),
     path('signup/', views.signup, name = 'signup'),
+    path('logout/', views.logout, name = 'logout'),
     path('recipes/',include('recipes.urls')),
 
 ] + static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)

@@ -11,6 +11,7 @@ def author(request):
 def login(request):
     if request.method =='POST':
             if auth.authenticate(username=request.POST["username"], password=request.POST["password"]):
+                auth.login(request,User.objects.get(username=request.POST["username"]))
                 return redirect('recipeslist')
             else:
                 return render(request,'login.html',{'error':'**Username or password Incorrect. Try Again.'})
@@ -32,3 +33,7 @@ def signup(request):
             return render(request,'signup.html',{'error':'**Password and Confirm password donot match'})
     else:
         return render(request,'signup.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('home')

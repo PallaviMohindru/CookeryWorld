@@ -1,1 +1,15 @@
-Recipes
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% for rlist in rlist.all %}
+    <br>
+    <br>
+    <form class=" container">
+    <img src="{{rlist.image.url}}" alt="" height="200" width="200">
+    <a href="{% url 'recipedetails' rlist.id %}">{{rlist.title}}</a>
+    </form>
+
+{% endfor %}
+
+{% endblock%}

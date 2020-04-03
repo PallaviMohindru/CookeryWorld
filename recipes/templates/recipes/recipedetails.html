@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<form class="container" >
+<h2>{{detail.title}}</h2>
+<img src="{{detail.image.url}}" alt="" height="200" width="200">
+<br>
+<br>
+<h3>INGREDIENTS</h3>
+{{detail.ingredients}}
+<br>
+<br>
+<h4>RECIPE</h4>
+{{detail.recipe}}
+</form>
+{% endblock %}
